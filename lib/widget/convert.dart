@@ -46,25 +46,33 @@ class Convert extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Obx(() => Text(c.path)),
         ),
-        ToggleSwitch(
-          fontSize: 12.0,
-          minHeight: 25,
-          minWidth: 60.0,
-          cornerRadius: 20.0,
-          activeBgColors: [
-            [Colors.green[800]!],
-            [Colors.red[800]!],
+        Row(mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Contains header'),
+            ),
+            ToggleSwitch(
+              fontSize: 12.0,
+              minHeight: 25,
+              minWidth: 60.0,
+              cornerRadius: 20.0,
+              activeBgColors: [
+                [Colors.green[800]!],
+                [Colors.red[800]!],
+              ],
+              activeFgColor: Colors.white,
+              inactiveBgColor: Colors.grey,
+              inactiveFgColor: Colors.white,
+              initialLabelIndex: 0,
+              totalSwitches: 2,
+              labels: ['True', 'False'],
+              radiusStyle: true,
+              onToggle: (index) {
+                c.toggleHeader(index);
+              },
+            ),
           ],
-          activeFgColor: Colors.white,
-          inactiveBgColor: Colors.grey,
-          inactiveFgColor: Colors.white,
-          initialLabelIndex: 0,
-          totalSwitches: 2,
-          labels: ['True', 'False'],
-          radiusStyle: true,
-          onToggle: (index) {
-            c.toggleHeader(index);
-          },
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
